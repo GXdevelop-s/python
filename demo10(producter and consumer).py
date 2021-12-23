@@ -31,7 +31,7 @@ def consumer(q):
 if __name__ == '__main__':
     t1 = threading.Thread(target=product, args=(q,))
     t2 = threading.Thread(target=consumer, args=(q,))
-    t1.setDaemon(True)
+    t1.setDaemon(True)  # 将该线程设置为保护线程，保护线程将依附于主进程，主进程结束，此线程也结束
     t2.setDaemon(True)
     t1.start()
     t2.start()
